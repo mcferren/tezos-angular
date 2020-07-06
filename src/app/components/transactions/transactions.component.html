@@ -1,0 +1,33 @@
+<div class="content mat-elevation-z8">
+    <div class="title-bar">
+        <i class="fa fa-history"></i>
+        &nbsp; Recent Transactions
+    </div>
+    <div class="data" *ngIf="transactions$ | async as transactions">
+        <table>
+            <tr class="heading">
+                <td>Type</td>
+                <td>Amount</td>
+                <td>Date</td>
+                <td>Address</td>
+            </tr>
+        </table>
+        <cdk-virtual-scroll-viewport (scrolledIndexChange)="onScroll($event, transactions.list, transactions.loading)" itemSize="50" class="content-viewport">
+            <table>
+                <tr *cdkVirtualFor="let transaction of transactions.list">
+                    <td><span class="type" [ngClass]="transaction.type">{{ transaction.type }}</span></td>
+                    <td>
+                        <span>+{{ transaction.row_id }} XTZ</span>
+                        <span class="gray">{{ transaction.volume }} USD</span>
+                    </td>
+                    <td>{{ transaction.time | date:'MMM d y, H:mm'}}</td>
+                    <td>
+                        {{ transaction.sender | slice:0:2 }}
+                        ...
+                        {{ transaction.sender | slice:-5 }}
+                    </td>
+                </tr>
+            </table>
+        </cdk-virtual-scroll-viewport>
+    </div>
+</div>

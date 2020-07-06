@@ -1,0 +1,83 @@
+.viewport {
+    height: 400px;
+    .item {
+        display: block;
+        height: 100px;
+        border-bottom: 1px solid white;
+        background-color: gray;
+    }
+}
+
+.title-bar {
+    display: block;
+    padding: 20px;
+    font-size: large;
+}
+
+.content {
+    display: block;
+    .data {
+        height: auto;
+        table {
+            width: 100%;
+            tr {
+                display: block;
+                height: 50px;
+                padding: 10px;
+                display: flex;
+                flex-direction: row;
+                td:nth-child(1) {
+                    flex: 1;
+                    .type {
+                        border: 1px solid gray;
+                        color: gray;
+                        padding: 3px 10px;
+                        border-radius: 20px;
+                        font-size: small;
+                    }
+                    .type.transaction {
+                        background-color: #eee;
+                    }
+                    .type.pending {
+                        background-color: #fff;
+                    }
+                    .type.received {
+                        background-color: #cfc;
+                    }
+                    .type.sent {
+                        background-color: #eee;
+                    }
+                    .type.reward {
+                        background-color: #ffc;
+                    }
+                }
+                td:nth-child(2) {
+                    flex: 2;
+                }
+                td:nth-child(3) {
+                    flex: 1;
+                }
+                td:nth-child(4) {
+                    flex: 1;
+                }
+            }
+            tr.heading {
+                background-color: #eee;
+                height: auto;
+                color: gray;
+            }
+        }
+    }
+}
+
+.content-viewport {
+    display: block;
+    height: 400px;
+}
+
+.gray {
+    color: gray;
+}
+
+
+
